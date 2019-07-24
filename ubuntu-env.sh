@@ -18,6 +18,10 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 echo "source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions /' ~/.zshrc
 
-git clone https://github.com/zsh-users/zsh-history-substring-search $ZSH_CUSTOM/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+plugins=( [plugins...] history-substring-search)
+echo "source zsh-history-substring-search.zsh" >> ~/.zshrc
+echo "bindkey -M vicmd '^P' history-substring-search-up" >> ~/.zshrc
+echo "bindkey -M vicmd '^N' history-substring-search-down" >> ~/.zshrc
 
 source ~/.zshrc
