@@ -8,6 +8,12 @@ sudo apt-get install zsh
 chsh -s /bin/zsh
 
 sudo apt-get install git
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.last 'log -1 HEAD'
 
 sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
@@ -19,9 +25,9 @@ echo "source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >>
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions /' ~/.zshrc
 
 git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
-plugins=( [plugins...] history-substring-search)
+sed -i 's/plugins=(/plugins=(history-substring-search /' ~/.zshrc
 echo "source zsh-history-substring-search.zsh" >> ~/.zshrc
-echo "bindkey -M vicmd '^P' history-substring-search-up" >> ~/.zshrc
-echo "bindkey -M vicmd '^N' history-substring-search-down" >> ~/.zshrc
+echo "bindkey '^p' history-substring-search-up" >> ~/.zshrc
+echo "bindkey '^n' history-substring-search-down" >> ~/.zshrc
 
 source ~/.zshrc
