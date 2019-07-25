@@ -6,7 +6,6 @@ sudo sh vim-ide/installVim.sh
 cd -
 
 sudo apt-get install zsh
-chsh -s /bin/zsh
 
 sudo apt-get install git
 git config --global alias.co checkout
@@ -21,14 +20,14 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 sudo apt-get install autojump
 echo ". /usr/share/autojump/autojump.sh" >> ~/.zshrc
 
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-echo "source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH/plugins/zsh-autosuggestions
+echo "source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 sed -i 's/plugins=(/plugins=(zsh-autosuggestions /' ~/.zshrc
 
-git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
 sed -i 's/plugins=(/plugins=(history-substring-search /' ~/.zshrc
-echo "source zsh-history-substring-search.zsh" >> ~/.zshrc
+echo "source $ZSH/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh" >> ~/.zshrc
 echo "bindkey '^p' history-substring-search-up" >> ~/.zshrc
 echo "bindkey '^n' history-substring-search-down" >> ~/.zshrc
 
-source ~/.zshrc
+chsh -s /bin/zsh
