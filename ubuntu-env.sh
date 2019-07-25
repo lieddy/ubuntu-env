@@ -1,8 +1,9 @@
 #!/bin/bash
 
 git clone https://github.com/lieddy/vim-ide.git
-cd vim-ide
-sudo sh installVim.sh
+cd ~
+sudo sh vim-ide/installVim.sh
+cd -
 
 sudo apt-get install zsh
 chsh -s /bin/zsh
